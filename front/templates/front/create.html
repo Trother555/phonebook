@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+
+{% block main %}
+<form method="POST">
+    {% csrf_token %}
+    <table class="table">
+        <tr>
+            {{ form.errors }}
+        </tr>
+        <tr>
+            <th>Имя</th>
+            <td>
+                <input type="text" name="first_name" maxlength="50" required="">
+            </td>
+        </tr>
+        <tr>
+            <th>Фамилия</th>
+            <td>
+                <input type="text" name="last_name" maxlength="50" required="">
+            </td>
+        </tr>
+        <tr>
+            <th>Телефон</th>
+            <td>
+                <input type="tel" name="phone_number" maxlength="50" required="">
+            </td>
+        </tr>
+    </table>
+    <button
+        type="submit"
+        class="btn btn-primary">
+        Создать
+    </button>
+</form>
+{% endblock main %}
+    

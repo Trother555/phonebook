@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+
+{% block main %}
+<form method="GET">
+    <table class="table">
+        <tr>
+            <th>Имя</th>
+            <td><input type="text" name="first_name"></td>
+        </tr>
+        <tr>
+            <th>Фамилия</th>
+            <td><input type="text" name="last_name"></td>
+        </tr>
+    </table>
+    <button
+        type="submit"
+        class="btn btn-primary">
+        Найти
+    </button>
+</form>
+{% endblock main %}
+
+
+{% block sidebar %}
+    
+    {% if person %}
+        <table class="table">
+            <thead>
+                <th>Результат:</th>
+                <th></th>
+            </thead>
+            <tr>
+                <td>Имя</td>
+                <td>{{ person.first_name }}</td>
+            </tr>
+            <tr>
+                <td>Фамилия</td>
+                <td>{{ person.last_name }}</td>
+            </tr>
+            <tr>
+                <td>Телефон</td>
+                <td>{{ person.phone_number }}</td>
+            </tr>
+        </table>
+    {% elif not_found %}
+        <strong>Запись не найдена</strong>
+    {% endif %}
+        
+{% endblock sidebar %}
+    
